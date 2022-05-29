@@ -7,7 +7,7 @@ import (
 
 // Routers 路由
 func Routers(e *gin.Engine) {
-	g := e.Group("/wxcallback", middleware.WXSourceMiddleWare)
+	g := e.Group("/wxcallback", middleware.WXOpenSourceMiddleWare)
 	g.POST("/component", componentHandler)
 	g.POST("/biz/:appid", bizHandler)
 }
