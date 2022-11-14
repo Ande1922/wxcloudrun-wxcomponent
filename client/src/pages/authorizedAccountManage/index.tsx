@@ -258,7 +258,7 @@ export default function AuthorizedAccountManage() {
             request: getDevMiniProgramListRequest,
             data: {
                 offset: (mpCurrentPage - 1) * pageSize,
-                count: pageSize,
+                limit: pageSize,
                 appid: miniProgramAppIdInput,
             }
         })
@@ -324,11 +324,12 @@ export default function AuthorizedAccountManage() {
                         hover
                         // 与pagination对齐
                         pagination={{
-                            pageSize,
                             total: accountTotal,
                             current: currentPage,
-                            pageSizeOptions: [15],
+                            pageSize: pageSize,
+                            pageSizeOptions: [],
                             onCurrentChange: setCurrentPage,
+                            showJumper: true,
                         }}
                     />
                 </TabPanel>
@@ -346,8 +347,9 @@ export default function AuthorizedAccountManage() {
                             pageSize,
                             total: mpAccountTotal,
                             current: mpCurrentPage,
-                            pageSizeOptions: [15],
+                            pageSizeOptions: [],
                             onCurrentChange: setMpCurrentPage,
+                            showJumper: true,
                         }}
                     />
                 </TabPanel>
